@@ -1,3 +1,4 @@
 {{- if ne .chezmoi.osRelease.id "arch" }}
 /.ssh/
+/.config/fish/conf.d/pacman.conf
 {{- end }}
