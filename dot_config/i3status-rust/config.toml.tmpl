@@ -1,0 +1,67 @@
+theme = "slick"
+icons = "material-nf"
+
+[[block]]
+block = "focused_window"
+max_width = 100
+show_marks = "all"
+
+[[block]]
+block = "pacman"
+aur_command = "paru -Qua"
+format = "{pacman} +{aur} ={both}"
+format_singular = "{pacman} +{aur} ={both}"
+hide_when_uptodate = true
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+[[block]]
+block = "nvidia_gpu"
+label = ""
+show_fan_speed = true
+show_clocks = true
+show_power_draw = true
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{mem_total_used_percents}"
+format_swap = "{swap_used_percents}"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "load"
+interval = 1
+format = "{1m} {5m} {15m}"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "keyboard_layout"
+driver = "kbddbus"
+
+[[block]]
+block = "weather"
+service.name = "openweathermap" 
+service.api_key = "{{ (bitwardenFields "item" "openweathermap.org").api_key.value }}"
+service.city_id = "{{ (bitwardenFields "item" "openweathermap.org").city_id.value }}"
+service.units = "metric"
+format = "{weather_verbose} {temp} {humidity}% {wind}m/s"
+interval = 300
+
+[[block]]
+block = "time"
+interval = 1
+format = "%a %y-%m-%d %H:%M:%S"
